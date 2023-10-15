@@ -37,4 +37,6 @@ function clearTextFunc() {
     }, 50);
 };
 
-typeTextFunc();
+setTimeout(() => {
+  typeTextFunc();
+}, 150);
