@@ -1,42 +1,56 @@
 import './style.css';
 
-const type = document.querySelector('.type-text');
+import './src/components/logo';
 
-const listTexts = ['new great experience!', 'personalized AI assistance.', 'super duper software!'];
+document.querySelector('.hero .arrows').addEventListener('click', () => {
+  document.querySelector('.about-us').scrollIntoView({ behavior: 'smooth' });
+});
 
-let index = -1;
-let current = 0;
+document.querySelector('.about-us .arrows').addEventListener('click', () => {
+  document.querySelector('.contact-us').scrollIntoView({ behavior: 'smooth' });
+});
 
-function typeTextFunc() {
-    if (current === listTexts.length) {
-        current = 0;
-    }
-    const typeIntervalId = setInterval(() => {
-        if (index === listTexts[current].length - 1) {
-            clearInterval(typeIntervalId);
-            setTimeout(() => {
-              clearTextFunc();
-            }, 350);
-        } else {
-            index++;
-            type.textContent += listTexts[current][index];
-        }
-    }, 85);
-};
+const formLogo = document.querySelector('.form-container main-logo');
+let timeoutId;
 
-function clearTextFunc() {
-    const clearIntervalId = setInterval(() => {
-        if (type.textContent.length == 0) {
-            clearInterval(clearIntervalId);
-            index = -1;
-            current++
-            typeTextFunc();
-        } else {
-            type.textContent = type.textContent.slice(0, -1)
-        }
-    }, 50);
-};
+function handleBlur() {
+  if (timeoutId) {
+    clearTimeout(timeoutId);
+  }
+  timeoutId = setTimeout(() => {
+    formLogo.setAttribute('animation', 'eyeRoll');
+  }, 800);
+}
 
-setTimeout(() => {
-  typeTextFunc();
-}, 150);
+function handleFocus() {
+  if (timeoutId) {
+    clearTimeout(timeoutId);
+  }
+  formLogo.removeAttribute('animation');
+}
+
+document.querySelector('[name="fullName"]').addEventListener('focus', () => {
+  handleFocus();
+  formLogo.classList.remove('message');
+  formLogo.classList.remove('email');
+});
+
+document.querySelector('[name="email"]').addEventListener('focus', () => {
+  handleFocus();
+  formLogo.classList.remove('message');
+  formLogo.classList.add('email');
+});
+
+document.querySelector('[name="message"]').addEventListener('focus', () => {
+  handleFocus();
+  formLogo.classList.remove('email');
+  formLogo.classList.add('message');
+});
+
+document
+  .querySelector('[name="fullName"]')
+  .addEventListener('blur', handleBlur);
+
+document.querySelector('[name="email"]').addEventListener('blur', handleBlur);
+
+document.querySelector('[name="message"]').addEventListener('blur', handleBlur);
