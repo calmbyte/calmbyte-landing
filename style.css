@@ -1,6 +1,8 @@
+@import './src/styles/mobile.css';
+
 :root {
-  --background-color: #415c76;
-  --color: #ecf0f1;
+  --secondary-color: #415c76;
+  --primary-color: #ecf0f1;
   --logo-color: #1b232b;
 }
 
@@ -11,8 +13,8 @@
 }
 
 body {
-  background-color: var(--background-color);
-  color: var(--color);
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
   font-family: 'Josefin Sans', sans-serif;
   min-height: 100dvh;
   scroll-behavior: smooth;
@@ -20,8 +22,8 @@ body {
 
 @media (prefers-color-scheme: light) {
   :root {
-    --background-color: #f1c40f;
-    --color: #415c76;
-    --logo-color: #415c76;
+    --secondary-color: #efd15a;
+    --primary-color: #33526f;
+    --logo-color: #33526f;
   }
 }

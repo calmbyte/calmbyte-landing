@@ -55,8 +55,10 @@
     border-bottom: calc(20px / 3) solid transparent;
   }
   50% {
-    border-left: calc(20px / 3) solid oklch(from var(--color) l c h / 0.7);
-    border-bottom: calc(20px / 3) solid oklch(from var(--color) l c h / 0.7);
+    border-left: calc(20px / 3) solid
+      oklch(from var(--primary-color) l c h / 0.7);
+    border-bottom: calc(20px / 3) solid
+      oklch(from var(--primary-color) l c h / 0.7);
     transform: translate(calc(20px / -6), 0px) rotate(-45deg);
   }
   100% {
