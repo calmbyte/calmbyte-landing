@@ -133,7 +133,7 @@ section.about-us {
         opacity: 1;
         transform: none;
       }
-      p {
+      & p {
         opacity: 0.6;
         filter: blur(0.8px);
         font-size: 1.1rem;
@@ -157,7 +157,7 @@ section.about-us {
         transform: none;
       }
 
-      p {
+      & p {
         font-size: 1.7rem;
         font-weight: 600;
         letter-spacing: -0.05rem;
@@ -200,7 +200,7 @@ section.contact-us {
     gap: 1rem;
     align-items: start;
 
-    main-logo {
+    & main-logo {
       transition: all 0.5s 0.15s;
       &.email {
         transform: translateY(5.5rem);
