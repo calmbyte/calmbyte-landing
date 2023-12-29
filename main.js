@@ -1,42 +1,35 @@
 import './style.css';
 
-const type = document.querySelector('.type-text');
+import './src/components/logo';
+import { ContactUsForm } from './src/components/contact-us-form';
 
-const listTexts = ['new great experience!', 'personalized AI assistance.', 'super duper software!'];
+document.querySelector('.hero .arrows').addEventListener('click', () => {
+  document.querySelector('.about-us').scrollIntoView({ behavior: 'smooth' });
+});
 
-let index = -1;
-let current = 0;
+document.querySelector('.about-us .arrows').addEventListener('click', () => {
+  document.querySelector('.contact-us').scrollIntoView({ behavior: 'smooth' });
+});
 
-function typeTextFunc() {
-    if (current === listTexts.length) {
-        current = 0;
+const contactUs = new ContactUsForm();
+
+const aboutUsContainer = document.querySelector('.about-us');
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    const [aboutUsObserver] = entries;
+
+    if (aboutUsObserver.isIntersecting) {
+      aboutUsContainer.querySelectorAll('main > div').forEach((node) => {
+        node.classList.add('visible');
+      });
     }
-    const typeIntervalId = setInterval(() => {
-        if (index === listTexts[current].length - 1) {
-            clearInterval(typeIntervalId);
-            setTimeout(() => {
-              clearTextFunc();
-            }, 350);
-        } else {
-            index++;
-            type.textContent += listTexts[current][index];
-        }
-    }, 85);
-};
+  },
+  {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.7,
+  }
+);
 
-function clearTextFunc() {
-    const clearIntervalId = setInterval(() => {
-        if (type.textContent.length == 0) {
-            clearInterval(clearIntervalId);
-            index = -1;
-            current++
-            typeTextFunc();
-        } else {
-            type.textContent = type.textContent.slice(0, -1)
-        }
-    }, 50);
-};
-
-setTimeout(() => {
-  typeTextFunc();
-}, 150);
+observer.observe(aboutUsContainer);

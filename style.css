@@ -1,59 +1,29 @@
+@import './src/styles/mobile.css';
+
 :root {
-  --background-color: #2c3e50;
-  --color: #ECF0F1;
+  --secondary-color: #635985;
+  --primary-color: #ecf0f1;
+  --logo-color: #1b232b;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 body {
-  background-color: var(--background-color);
-  color: var(--color);
-  font-family: Roboto, sans-serif;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.type-text {
-  position: relative;
-}
-
-.type-text::after {
-  content: '';
-  display: block;
-  position: absolute;
-  right: -5px;
-  top: 0;
-  height: 100%;
-  width: 4px;
-  border-radius: 2px;
-  background-color: var(--color);
-  animation: type .5s infinite;
-  -webkit-animation: type .5s infinite;
-}
-
-@keyframes type {
-  0% {
-      opacity: 1;
-  }
-
-  50% {
-      opacity: .5;
-  }
-
-  100% {
-      opacity: 0;
-  }
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  min-height: 100dvh;
+  scroll-behavior: smooth;
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    --background-color: #F1C40F;
-    --color: #34495E;
+    --secondary-color: #ffd89c;
+    --primary-color: #374259;
+    --logo-color: #374259;
   }
 }

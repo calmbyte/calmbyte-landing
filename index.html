@@ -1,14 +1,96 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="ico" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap&text=Wearbuildnvgwtxpc!sozAI.f" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap"
+      rel="stylesheet"
+    />
     <title>Calmbyte</title>
   </head>
   <body>
-    <h1>We are developing <span class="type-text"></span></h1>
+    <section class="hero">
+      <main-logo size="160" animation="eyeRolls"></main-logo>
+      <h1>CalmByte</h1>
+      <p>
+        AI powered personalized assistant for Your business, events and
+        activities.
+      </p>
+      <div class="arrows" data-navigate="about-us"></div>
+    </section>
+    <section class="about-us">
+      <h2>What we do?</h2>
+      <main>
+        <div class="open-source">
+          <img class="light" src="/github-mark.svg" />
+          <img class="dark" src="/github-mark-white.svg" />
+          <a href="https://github.com/calmbyte" target="_blank">Open Source</a>
+        </div>
+        <div class="personalized-apps">
+          <p>
+            Personalized<br />
+            Applications<br />
+            with "Byte"
+          </p>
+          <span>(coming soon)</span>
+        </div>
+        <div class="ai">
+          <main-logo size="140" animation="eyeRolls"></main-logo>
+          <p>
+            'Byte'<br />
+            personalized,<br />
+            AI powered<br />assistant
+          </p>
+        </div>
+      </main>
+      <div class="arrows" data-navigate="contact-us"></div>
+    </section>
+    <section class="contact-us">
+      <h2>Contact Us</h2>
+      <div class="form-container">
+        <main-logo size="60"></main-logo>
+        <form class="contact-us-form">
+          <div class="form-control">
+            <label for="fullName">Full Name</label>
+            <input
+              name="fullName"
+              placeholder="Your Full Name"
+              maxlength="100"
+              required
+            />
+          </div>
+          <div class="form-control">
+            <label for="email">Email</label>
+            <input
+              name="email"
+              type="email"
+              type="email"
+              maxlength="50"
+              placeholder="Your Email"
+              required
+            />
+          </div>
+          <div class="form-control">
+            <label for="message">Message</label>
+            <textarea
+              rows="3"
+              name="message"
+              maxlength="350"
+              required
+              placeholder="Tell us what You think"
+            ></textarea>
+          </div>
+          <button type="submit">Send</button>
+        </form>
+      </div>
+      <p class="form-success-feedback" aria-hidden="true">
+        Thanks for Your feedback!
+      </p>
+    </section>
     <script type="module" src="/main.js"></script>
   </body>
 </html>
