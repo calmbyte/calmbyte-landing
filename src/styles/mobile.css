@@ -53,6 +53,10 @@ section {
 section.hero {
   padding-top: calc(180px + 42%);
 
+  & .desktop-banner {
+    display: none;
+  }
+
   & h1 {
     font-size: 4.5rem;
     font-weight: 600;

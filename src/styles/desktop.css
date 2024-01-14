@@ -1,0 +1,20 @@
+@media screen and (min-width: 1024px) {
+  section:not(.hero) {
+    display: none;
+  }
+
+  section.hero {
+    padding-top: 45vh;
+    font-size: 2rem;
+
+    & .desktop-banner {
+      display: inline-block;
+    }
+
+    & .title,
+    & .description,
+    & .arrows {
+      display: none;
+    }
+  }
+}

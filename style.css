@@ -1,4 +1,5 @@
 @import './src/styles/mobile.css';
+@import './src/styles/desktop.css';
 
 :root {
   --secondary-color: #635985;

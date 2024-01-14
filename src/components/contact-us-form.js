@@ -44,8 +44,16 @@ export class ContactUsForm {
       button.textContent = 'Sending';
       try {
         const formData = new FormData(form);
+        const res = await fetch(import.meta.env.VITE_FEEDBACK_BASE_URL, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+        });
+        const { text } = await res.json();
 
-        this.#showFeedback(document.querySelector('.form-success-feedback'));
+        this.#showFeedback(text);
         this.#handleSubmit();
       } catch (error) {
         console.log(error);
@@ -57,10 +65,13 @@ export class ContactUsForm {
     });
   }
 
-  #showFeedback(node) {
+  #showFeedback(feedback) {
+    const node = document.querySelector('.form-success-feedback');
     node.classList.add('visible');
+    node.textContent = feedback;
     setTimeout(() => {
       node.classList.remove('visible');
+      node.textContent = '';
     }, 3000);
   }
 
