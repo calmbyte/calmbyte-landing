@@ -169,6 +169,12 @@ section.about-us {
         text-align: left;
         margin-left: auto;
       }
+
+      & a {
+        color: var(--primary-color);
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
     }
 
     & > div {
