@@ -11,7 +11,7 @@ export class ContactUsForm {
   constructor() {
     this.#form = document.querySelector('.contact-us-form');
 
-    this.#fullNameNode = document.querySelector('[name="fullName"]');
+    this.#fullNameNode = document.querySelector('[name="full_name"]');
     this.#emailNode = document.querySelector('[name="email"]');
     this.#messageNode = document.querySelector('[name="message"]');
 
@@ -46,14 +46,14 @@ export class ContactUsForm {
         const formData = new FormData(form);
         const res = await fetch(import.meta.env.VITE_FEEDBACK_BASE_URL, {
           method: 'POST',
-          body: formData,
+          body: JSON.stringify(Object.fromEntries(formData)),
           headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
+            'Content-Type': 'application/json',
           },
         });
-        const { text } = await res.json();
+        const { message } = await res.json();
 
-        this.#showFeedback(text);
+        this.#showFeedback(message);
         this.#handleSubmit();
       } catch (error) {
         console.log(error);
@@ -72,7 +72,7 @@ export class ContactUsForm {
     setTimeout(() => {
       node.classList.remove('visible');
       node.textContent = '';
-    }, 3000);
+    }, 7000);
   }
 
   #handleSubmit() {
